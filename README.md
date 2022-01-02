@@ -18,3 +18,4 @@ Versus fetchme:
 * 30% faster (on my system)
 * Easier to read
 * Adding a new distro is MUCH faster
+## Wayland support is not in sight

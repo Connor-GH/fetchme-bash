@@ -28,7 +28,7 @@ pkg=`ls -lah /var/lib/eopkg/package/ | wc -l`
 OpenSUSE*)
 pkg=`zypper search -i | grep "^i+" | wc -l`
 ;;
-Mac OS X* | macOS*)
+Mac\ OS\ X* | macOS*)
 pkg=`dir "$(brew --cellar)/* $(brew --caskroom)/*" | wc -l`
 ;;
 *)
@@ -149,7 +149,7 @@ echo -e "
 	  //  //    //        //  //
    //////      ////    //////    ////////${c2}"
 ;;
-Mac OS X* | macOS*)
+Mac\ OS\ X* | macOS*)
 c1='\033[1;32m'
 c2='\033[0m'
 c3='\033[1;31m'

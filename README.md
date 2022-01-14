@@ -12,6 +12,7 @@ Like fetchme, written POSIX-noncompliant shell. Instead of Neofetch ASCII art, D
 * Pop!_OS
 * Manjaro
 * OpenSUSE
+* MacOS
 
 Versus fetchme:
 * Under half the file space

@@ -13,6 +13,7 @@ Like fetchme, written POSIX-noncompliant shell. Instead of Neofetch ASCII art, D
 * Manjaro
 * OpenSUSE
 * MacOS
+* Linux Mint
 
 Versus fetchme:
 * Under half the file space

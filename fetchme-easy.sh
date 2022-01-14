@@ -185,5 +185,5 @@ WM: ${c2}`if [ -n "${XDG_SESSION_DESKTOP}" ]; then echo $XDG_SESSION_DESKTOP; el
 Terminal: ${c2}$TERM${c1}
 CPU: ${c2}`lscpu | awk '/name:/{print $3" "$4" "$5" "$6}'` `lscpu | sed '5! d' | awk '{print "("$2")"}'` @ `lscpu | awk '/max/ {print $4}' | cut -c 1-4`MHz${c1}
 GPU1: ${c2}`lspci | awk '/VGA/{$1=$2=$3=$4="";print $0}' | cut -c 5- | awk -F'[()]' '{print $1}' | sed -sn 1p`${c1}
-GPU2: ${c2}`lspci | awk '/VGA/{$1=$2=$3=$4="";print $0}' | cut -c 5- | awk -F'[()]' '{print $1}' | sed -sn 2p`${c1}
+`if [[ $(lspci | awk '/VGA/{$1=$2=$3=$4="";print $0}' | cut -c 5- | awk -F'[()]' '{print $1}' | sed -sn 2p) = "" ]]; then echo -e "No Second GPU${c1}"; else echo -e "GPU2: ${c2}$(lspci | awk '/VGA/{$1=$2=$3=$4="";print $0}' | cut -c 5- | awk -F'[()]' '{print $1}' | sed -sn 2p)${c1}"; fi`
 Memory: ${c2}`free -h --si | awk '/Mem:/{print $3 "/" $2}'`${c2}"

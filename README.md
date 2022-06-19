@@ -15,9 +15,4 @@ Like fetchme, written POSIX-noncompliant shell. Instead of Neofetch ASCII art, D
 * MacOS
 * Linux Mint
 
-Versus fetchme:
-* Under half the file space
-* 30% faster (on my system)
-* Easier to read
-* Adding a new distro is MUCH faster
 ## Wayland support is not in sight

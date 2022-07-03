@@ -192,7 +192,7 @@ echo -e "
 ;;
 esac
 echo -e "
-${c1}`whoami`${c2}@${c1}`if [ -x /etc/conf.d/hostname ]; then cat /etc/conf.d/hostname; else cat /etc/hostname; fi`
+${c1}`whoami`${c2}@${c1}`if [ -f /etc/conf.d/hostname ]; then cat /etc/conf.d/hostname | grep 'hostname=' | sed 's/hostname=//g' | sed 's/\"//g'; else cat /etc/hostname; fi`
 OS:${c2} $OS `uname -m`${c1}
 Kernel: ${c2}`uname -r`${c1}
 Uptime: ${c2}$uptime${c1}
@@ -203,5 +203,5 @@ WM: ${c2}`if [ -n "${XDG_SESSION_DESKTOP}" ]; then echo $XDG_SESSION_DESKTOP; el
 Terminal: ${c2}$TERM${c1}
 CPU: ${c2}`lscpu | awk '/name:/{print $3" "$4" "$5" "$6}'` `lscpu | sed '5! d' | awk '{print "("$2")"}'` @ `lscpu | awk '/max/ {print $4}' | cut -c 1-4`MHz${c1}
 GPU1: ${c2}`lspci | awk '/VGA/{$1=$2=$3=$4="";print $0}' | cut -c 5- | awk -F'[()]' '{print $1}' | sed -sn 1p`${c1}
-`if [[ $(lspci | awk '/VGA/{$1=$2=$3=$4="";print $0}' | cut -c 5- | awk -F'[()]' '{print $1}' | sed -sn 2p) = "" ]]; then echo -e "No Second GPU${c1}"; else echo -e "GPU2: ${c2}$(lspci | awk '/VGA/{$1=$2=$3=$4="";print $0}' | cut -c 5- | awk -F'[()]' '{print $1}' | sed -sn 2p)${c1}"; fi`
+`if [[ $(lspci | awk '/VGA/{$1=$2=$3=$4="";print $0}' | cut -c 5- | awk -F'[()]' '{print $1}' | sed -sn 2p) = "" ]]; then printf "${c1}"; else echo -e "GPU2: ${c2}$(lspci | awk '/VGA/{$1=$2=$3=$4="";print $0}' | cut -c 5- | awk -F'[()]' '{print $1}' | sed -sn 2p)${c1}"; fi`
 Memory: ${c2}`free -h --si | awk '/Mem:/{print $3 "/" $2}'`${c2}"

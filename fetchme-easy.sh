@@ -1,6 +1,6 @@
 #!/bin/sh
 # WM detection logic was taken from ufetch. All ASCII art was taken from neofetch. Link: https://github.com/dylanaraps/neofetch
-LC_ALL=C # No universal typeface = go faster
+LC_ALL=C
 LANG=C   # This line and the above taken from neofetch
 OS=$(cat /etc/os-release | awk '/_NAME/' | awk -F'[""]' '{print $2}')
 id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
